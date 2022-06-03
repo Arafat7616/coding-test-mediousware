@@ -14,13 +14,13 @@ try {
     require('jquery.easing')
     require('bootstrap');
     require('select2');
+    require('./helper');
 
     $('select').select2({
         theme: 'bootstrap4',
     })
 
-} catch (e) {
-}
+} catch (e) {}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
