@@ -118,6 +118,10 @@ export default {
         variants: {
             type: Array,
             required: true
+        },
+        product: {
+            type: Object,
+            required: true
         }
     },
     data() {
@@ -144,6 +148,51 @@ export default {
         }
     },
     methods: {
+        setupComp() {
+            this.product_name = this.product.title;
+            this.product_sku = this.product.sku;
+            this.description = this.product.description;
+
+            this.product.images.forEach(image => {
+                const options = { size: this.dropzoneOptions.maxFilesize, name: image.file_path, type: "image/" + image.file_path.split('.')[1] };
+                this.$refs.myVueDropzone.manuallyAddFile(options, '/storage/product-images/' + image.file_path);
+            });
+
+
+            let variant_name = "";
+            this.product.variants.forEach((item, key) => {
+                if (item.variant_one) {
+                    if (key === 0) {
+                        this.product_variant[0] = { option: item.variant_one.variant_id, tags: [] };
+                    }
+                    this.product_variant[0].tags.pushIfNotExist(item.variant_one.variant);
+                    variant_name = item.variant_one.variant;
+                }
+                if (item.variant_two) {
+                    if (key === 0) {
+                        this.product_variant[1] = { option: item.variant_two.variant_id, tags: [] };
+                    }
+                    this.product_variant[1].tags.pushIfNotExist(item.variant_two.variant);
+                    variant_name += `/${item.variant_two.variant}`;
+                }
+                if (item.variant_three) {
+                    if (key === 0) {
+                        this.product_variant[2] = { option: item.variant_three.variant_id, tags: [] };
+                    }
+                    this.product_variant[2].tags.pushIfNotExist(item.variant_three.variant);
+                    variant_name += `/${item.variant_three.variant}`;
+                }
+                
+
+                this.product_variant_prices.push({
+                    title: variant_name,
+                    price: item.price,
+                    stock: item.stock
+                })
+
+            });
+        },
+
         // it will push a new object into product variant
         newVariant() {
             let all_variants = this.variants.map(el => el.id)
@@ -159,7 +208,6 @@ export default {
 
         // check the variant and render all the combination
         checkVariant() {
-            console.log(this.product_variant);
             let tags = [];
             this.product_variant_prices = [];
             this.product_variant.filter((item) => {
@@ -194,9 +242,20 @@ export default {
         },
 
         removeFile(file, error, xhr) {
-            const index = this.images.indexOf(file.dataURL);
-            if (index > -1)
-                this.images.splice(index, 1); // 2nd parameter means remove one item only
+            console.log(file.manuallyAdded, error, xhr);
+            if (file.manuallyAdded) {
+                axios.delete(`/product/image/${file.name}`).catch(error => {
+                    this.$swal({
+                        icon: 'error',
+                        title: 'Error',
+                        text: error.response.data.message,
+                    });
+                });
+            }else {
+                const index = this.images.indexOf(file.dataURL);
+                if (index > -1)
+                    this.images.splice(index, 1);
+            }
         },
 
         // store product into database
@@ -212,7 +271,7 @@ export default {
             }
 
 
-            axios.post('/product', product).then(response => {
+            axios.put(`/product/${this.product.id}`, product).then(response => {
                 this.$swal({
                     icon: 'success',
                     title: 'Success',
@@ -220,6 +279,7 @@ export default {
                 }).then(() => {
                     window.location.href = '/product'
                 });
+
             }).catch(error => {
                 this.$swal({
                     icon: 'error',
@@ -236,6 +296,7 @@ export default {
 
     },
     mounted() {
+        this.setupComp();
         console.log('Component mounted.')
     }
 }

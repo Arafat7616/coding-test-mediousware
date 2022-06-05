@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 01, 2020 at 05:56 AM
--- Server version: 5.7.31-0ubuntu0.18.04.1
--- PHP Version: 7.3.21-1+ubuntu18.04.1+deb.sury.org+1
+-- Generation Time: Jun 03, 2022 at 05:08 PM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `med_question`
+-- Database: `coding_test_mediusware`
 --
 
 -- --------------------------------------------------------
@@ -148,7 +149,9 @@ INSERT INTO `products` (`id`, `title`, `sku`, `description`, `created_at`, `upda
 (4, 'Product Four', 'afdafdfasdfasasdfadsf', 'adsfadft is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)', '2020-08-31 10:21:44', '2020-08-31 10:21:44'),
 (5, 'T-Shirt', 't-shirt', 't is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)', '2020-08-31 10:37:15', '2020-08-31 10:37:15'),
 (6, 'T-Shirt RED', 't-shirt-red', 't is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)', '2020-08-31 10:38:17', '2020-08-31 10:38:17'),
-(7, 'Formal Shirt', 'formal-shirt', 't is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)', '2020-08-31 10:38:39', '2020-08-31 10:38:39');
+(7, 'Formal Shirt', 'formal-shirt', 't is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)', '2020-08-31 10:38:39', '2020-08-31 10:38:39'),
+(8, 'orem Ipsum is simply du--', 'orem-0Ipsumis--', 't is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', ma', '2022-06-03 10:56:17', '2022-06-03 10:57:02'),
+(9, 'Demo product 1', 'Demo-product-1', 't is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and', '2022-06-03 11:04:16', '2022-06-03 11:04:16');
 
 -- --------------------------------------------------------
 
@@ -230,7 +233,25 @@ INSERT INTO `product_variants` (`id`, `variant`, `variant_id`, `product_id`, `cr
 (43, 'l', 2, 7, '2020-08-31 10:38:39', '2020-08-31 10:38:39'),
 (44, 'm', 2, 7, '2020-08-31 10:38:39', '2020-08-31 10:38:39'),
 (45, 'v-nick', 6, 7, '2020-08-31 10:38:39', '2020-08-31 10:38:39'),
-(46, 'o-nick', 6, 7, '2020-08-31 10:38:39', '2020-08-31 10:38:39');
+(46, 'o-nick', 6, 7, '2020-08-31 10:38:39', '2020-08-31 10:38:39'),
+(47, 'Green', 1, 8, '2022-06-03 10:56:17', '2022-06-03 10:56:17'),
+(48, 'Blue', 1, 8, '2022-06-03 10:56:17', '2022-06-03 10:56:17'),
+(49, 'XL', 2, 8, '2022-06-03 10:56:17', '2022-06-03 10:56:17'),
+(50, 'SM', 2, 8, '2022-06-03 10:56:17', '2022-06-03 10:56:17'),
+(51, 'Green', 1, 8, '2022-06-03 10:57:02', '2022-06-03 10:57:02'),
+(52, 'Blue', 1, 8, '2022-06-03 10:57:02', '2022-06-03 10:57:02'),
+(53, 'White', 1, 8, '2022-06-03 10:57:02', '2022-06-03 10:57:02'),
+(54, 'XL', 2, 8, '2022-06-03 10:57:02', '2022-06-03 10:57:02'),
+(55, 'SM', 2, 8, '2022-06-03 10:57:02', '2022-06-03 10:57:02'),
+(56, 'Green', 1, 9, '2022-06-03 11:04:16', '2022-06-03 11:04:16'),
+(57, 'Red', 1, 9, '2022-06-03 11:04:16', '2022-06-03 11:04:16'),
+(58, 'XL', 2, 9, '2022-06-03 11:04:16', '2022-06-03 11:04:16'),
+(59, 'SM', 2, 9, '2022-06-03 11:04:16', '2022-06-03 11:04:16'),
+(60, 'Green', 1, 9, '2022-06-03 11:05:31', '2022-06-03 11:05:31'),
+(61, 'Red', 1, 9, '2022-06-03 11:05:31', '2022-06-03 11:05:31'),
+(62, 'Blue', 1, 9, '2022-06-03 11:05:31', '2022-06-03 11:05:31'),
+(63, 'XL', 2, 9, '2022-06-03 11:05:31', '2022-06-03 11:05:31'),
+(64, 'SM', 2, 9, '2022-06-03 11:05:31', '2022-06-03 11:05:31');
 
 -- --------------------------------------------------------
 
@@ -329,7 +350,19 @@ INSERT INTO `product_variant_prices` (`id`, `product_variant_one`, `product_vari
 (72, 2, 8, 17, 0, 0, 7, '2020-08-31 10:38:40', '2020-08-31 10:38:40'),
 (73, 2, 8, 18, 0, 0, 7, '2020-08-31 10:38:40', '2020-08-31 10:38:40'),
 (74, 2, 6, 17, 0, 0, 7, '2020-08-31 10:38:40', '2020-08-31 10:38:40'),
-(75, 2, 6, 18, 0, 0, 7, '2020-08-31 10:38:40', '2020-08-31 10:38:40');
+(75, 2, 6, 18, 0, 0, 7, '2020-08-31 10:38:40', '2020-08-31 10:38:40'),
+(80, 51, 54, NULL, 54, 54, 8, '2022-06-03 10:57:02', '2022-06-03 10:57:02'),
+(81, 51, 55, NULL, 89, 899, 8, '2022-06-03 10:57:02', '2022-06-03 10:57:02'),
+(82, 52, 54, NULL, 895, 98, 8, '2022-06-03 10:57:02', '2022-06-03 10:57:02'),
+(83, 52, 55, NULL, 65, 65, 8, '2022-06-03 10:57:02', '2022-06-03 10:57:02'),
+(84, 53, 54, NULL, 56, 65, 8, '2022-06-03 10:57:02', '2022-06-03 10:57:02'),
+(85, 53, 55, NULL, 65, 65, 8, '2022-06-03 10:57:02', '2022-06-03 10:57:02'),
+(90, 60, 63, NULL, 4524, 45, 9, '2022-06-03 11:05:31', '2022-06-03 11:05:31'),
+(91, 60, 64, NULL, 54, 54, 9, '2022-06-03 11:05:31', '2022-06-03 11:05:31'),
+(92, 61, 63, NULL, 546, 54, 9, '2022-06-03 11:05:31', '2022-06-03 11:05:31'),
+(93, 61, 64, NULL, 54, 54, 9, '2022-06-03 11:05:31', '2022-06-03 11:05:31'),
+(94, 62, 63, NULL, 46, 56, 9, '2022-06-03 11:05:31', '2022-06-03 11:05:31'),
+(95, 62, 64, NULL, 546, 546, 9, '2022-06-03 11:05:31', '2022-06-03 11:05:31');
 
 -- --------------------------------------------------------
 
@@ -353,7 +386,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@example.com', NULL, '$2y$10$NfLWLL9Mj6dCi0fQ3TBqWO53ZFsDlGUZmFl.gILMhHDHVi34XwWKW', NULL, '2020-08-28 00:03:42', '2020-08-28 00:03:42');
+(1, 'Admin', 'arafathossin7616@gmail.com', NULL, '$2y$10$LbpZxw9ioBFMyXtmKtvN3O.5ZKEKwBEqtVDBLxV38YyNZ0k.y9eLK', NULL, '2020-08-28 00:03:42', '2020-08-28 00:03:42');
 
 -- --------------------------------------------------------
 
@@ -476,56 +509,67 @@ ALTER TABLE `variants`
 --
 ALTER TABLE `blogs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `blog_categories`
 --
 ALTER TABLE `blog_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `blog_tags`
 --
 ALTER TABLE `blog_tags`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+
 --
 -- AUTO_INCREMENT for table `product_variant_prices`
 --
 ALTER TABLE `product_variant_prices`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `variants`
 --
 ALTER TABLE `variants`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- Constraints for dumped tables
 --
@@ -563,6 +607,7 @@ ALTER TABLE `product_variant_prices`
   ADD CONSTRAINT `product_variant_prices_product_variant_one_foreign` FOREIGN KEY (`product_variant_one`) REFERENCES `product_variants` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `product_variant_prices_product_variant_three_foreign` FOREIGN KEY (`product_variant_three`) REFERENCES `product_variants` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `product_variant_prices_product_variant_two_foreign` FOREIGN KEY (`product_variant_two`) REFERENCES `product_variants` (`id`) ON DELETE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
